@@ -9,8 +9,8 @@
         public double Damage { get; set; }
         public double Health { get; set; }
         public double Armor { get; set; }
-
     }
+
     public class DragonArmy
     {
         const double defaultDamage = 45;
