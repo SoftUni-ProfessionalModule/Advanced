@@ -29,13 +29,9 @@
 
                 var dragonType = dragonParams[0];
                 var dragonName = dragonParams[1];
-                var damageAsString = dragonParams[2];
-                var healthAsString = dragonParams[3];
-                var armorAsString = dragonParams[4];
-
-                var damage = ParseStatsToDouble(damageAsString, defaultDamage);
-                var health = ParseStatsToDouble(healthAsString, defaultHealth);
-                var armor = ParseStatsToDouble(armorAsString, defaultArmor);
+                var damage = int.Parse(dragonParams[2] == "null" ? "45" : dragonParams[2]);
+                var health = int.Parse(dragonParams[3] == "null" ? "250" : dragonParams[3]);
+                var armor = int.Parse(dragonParams[4] == "null" ? "10" : dragonParams[4]);
 
                 CollectDragons(dragons, dragonType, dragonName, damage, health, armor);
             }
@@ -75,20 +71,6 @@
             dragons[dragonType][dragonName].Damage = damage;
             dragons[dragonType][dragonName].Health = health;
             dragons[dragonType][dragonName].Armor = armor;
-        }
-
-        static double ParseStatsToDouble(string currentStat, double defaultDamage)
-        {
-            double parsedValue = 0;
-
-            if (double.TryParse(currentStat, out parsedValue))
-            {
-                return parsedValue;
-            }
-            else
-            {
-                return defaultDamage;
-            }
         }
     }
 }
