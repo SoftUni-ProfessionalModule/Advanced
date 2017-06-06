@@ -32,6 +32,14 @@
                             {
                                 page = "index.html";
                             }
+                            else if (File.Exists("../../" + tokens[1]))
+                            {
+                                page = tokens[1];
+                            }
+                            else
+                            {
+                                page = "error.html";
+                            }
 
                             using (var file = new StreamReader("../../" + page))
                             {
@@ -50,17 +58,8 @@
                         }
                         catch (Exception e)
                         {
-                            //var file = new StreamReader("../../error.html");
-                            //sw.WriteLine("HTTP/1.0 404 OK\n");
-                            //var data = file.ReadLine();
-                            //while (data != null)
-                            //{
-                            //    sw.WriteLine(data);
-                            //    sw.Flush();
-                            //    data = file.ReadLine();
-                            //}
+                            
                         }
-
                     }
                 }
 
