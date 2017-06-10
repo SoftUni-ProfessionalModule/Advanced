@@ -6,8 +6,8 @@
     {
         public static void Main()
         {
-            var sourceFile = new FileStream("SoftUniLogo.png", FileMode.Open);
-            var targetFile = new FileStream("CopiedSoftUniLogo.png", FileMode.Create);
+            var sourceFile = new FileStream("../../SoftUniLogo.jpg", FileMode.Open);
+            var targetFile = new FileStream("../../CopiedSoftUniLogo.jpg", FileMode.Create);
 
             using (sourceFile)
             {

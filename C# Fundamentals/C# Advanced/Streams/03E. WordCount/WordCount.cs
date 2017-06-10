@@ -9,9 +9,9 @@
     {
         public static void Main()
         {
-            var textReader = new StreamReader("text.txt");
-            var wordsReader = new StreamReader("words.txt");
-            var writer = new StreamWriter("result.txt");
+            var textReader = new StreamReader("../../text.txt");
+            var wordsReader = new StreamReader("../../words.txt");
+            var writer = new StreamWriter("../../result.txt");
             var wordsCounterDict = new Dictionary<string, int>();
 
             using (textReader)

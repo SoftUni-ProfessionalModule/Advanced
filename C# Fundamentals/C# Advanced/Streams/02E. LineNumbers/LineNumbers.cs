@@ -6,8 +6,8 @@
     {
         public static void Main()
         {
-            var reader = new StreamReader("text.txt");
-            var writer = new StreamWriter("result.txt");
+            var reader = new StreamReader("../../text.txt");
+            var writer = new StreamWriter("../../result.txt");
             var lineCounter = 1;
 
             using (reader)

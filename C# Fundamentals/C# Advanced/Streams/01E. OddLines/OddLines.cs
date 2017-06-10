@@ -6,7 +6,7 @@
     {
         public static void Main()
         {
-            StreamReader reader = new StreamReader("text.txt");
+            StreamReader reader = new StreamReader("../../text.txt");
 
             using (reader)
             {

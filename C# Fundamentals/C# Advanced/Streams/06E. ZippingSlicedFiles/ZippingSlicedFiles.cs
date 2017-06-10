@@ -13,7 +13,7 @@
             Console.WriteLine("Enter number of slices");
             var partsToSlice = int.Parse(Console.ReadLine());
 
-            var sourceFile = "Ferrari-812.jpg";
+            var sourceFile = "../../Ferrari-812.jpg";
             Console.WriteLine("Enter destination folder name:");
             var targetDirectory = $@"../../{Console.ReadLine()}/";
 
