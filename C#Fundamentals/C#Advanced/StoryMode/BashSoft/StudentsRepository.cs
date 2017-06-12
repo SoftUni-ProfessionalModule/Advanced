@@ -5,6 +5,7 @@
     using System.IO;
     using System.Linq;
     using System.Text;
+    using System.Text.RegularExpressions;
     using System.Threading.Tasks;
 
     public static class StudentsRepository
@@ -31,6 +32,8 @@
 
         private static void ReadData(string fileName)
         {
+            string pattern = @"([A-Z][a-zA-Z+#]*_[A-Z][a-z]{2}_\d{4})\s+([A-Z][a-z]{0,3}\d{2}_\d{2,4})\s+(\d+)";
+            Regex rgx = new Regex(pattern);
             string path = SessionData.currentPath + "\\" + fileName;
 
             if (File.Exists(path))
@@ -39,23 +42,27 @@
 
                 for (int line = 0; line < allInputLines.Length; line++)
                 {
-                    if (!string.IsNullOrEmpty(allInputLines[line]))
+                    if (!string.IsNullOrEmpty(allInputLines[line]) && rgx.IsMatch(allInputLines[line]))
                     {
-                        string[] data = allInputLines[line].Split(' ');
-                        string course = data[0];
-                        string student = data[1];
-                        int mark = int.Parse(data[2]);
+                        Match currentMatch = rgx.Match(allInputLines[line]);
+                        string courseName = currentMatch.Groups[1].Value;
+                        string userName = currentMatch.Groups[2].Value;
+                        int studentScoreOnTask;
+                        bool hasParsedScore = int.TryParse(currentMatch.Groups[3].Value, out studentScoreOnTask);
 
-                        if (!studentByCourse.ContainsKey(course))
+                        if (hasParsedScore && studentScoreOnTask >= 0 && studentScoreOnTask <= 100)
                         {
-                            studentByCourse.Add(course, new Dictionary<string, List<int>>());
-                        }
-                        if (!studentByCourse[course].ContainsKey(student))
-                        {
-                            studentByCourse[course][student] = new List<int>();
-                        }
+                            if (!studentByCourse.ContainsKey(courseName))
+                            {
+                                studentByCourse.Add(courseName, new Dictionary<string, List<int>>());
+                            }
+                            if (!studentByCourse[courseName].ContainsKey(userName))
+                            {
+                                studentByCourse[courseName][userName] = new List<int>();
+                            }
 
-                        studentByCourse[course][student].Add(mark);
+                            studentByCourse[courseName][userName].Add(studentScoreOnTask);
+                        }
                     }
                 }
 

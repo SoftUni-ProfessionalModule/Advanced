@@ -12,6 +12,7 @@
     {
         public static void InterpredCommand(string input)
         {
+            // What about if we have white spaces in folder/s name/s ???
             string[] data = input.Split(' ');
             string command = data[0];
 
@@ -57,9 +58,31 @@
                 case "downloadAsynch":
 
                     break;
+                case "show":
+                    TryShowWantedData(input, data);
+                    break;
                 default:
                     DisplayInvalidCommandMessage(input);
                     break;
+            }
+        }
+
+        private static void TryShowWantedData(string input, string[] data)
+        {
+            if (data.Length == 2)
+            {
+                string courseName = data[1];
+                StudentsRepository.GetAllStudentsFromCourse(courseName);
+            }
+            else if (data.Length == 3)
+            {
+                string courseName = data[1];
+                string userName = data[2];
+                StudentsRepository.GetStudenScoresFromCourse(courseName, userName);
+            }
+            else
+            {
+                DisplayInvalidCommandMessage(input);
             }
         }
 
@@ -174,7 +197,7 @@
             }
         }
 
-        public static void DisplayInvalidCommandMessage(string input)
+        private static void DisplayInvalidCommandMessage(string input)
         {
             OutputWriter.DisplayExeption($"The command '{input}' is invalid");
         }
