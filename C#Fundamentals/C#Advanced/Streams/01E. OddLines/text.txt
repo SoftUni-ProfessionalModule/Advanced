@@ -1,0 +1,11 @@
+If you want to take up programming seriously, you’ve come across the right book.
+For real! This is the book with which you can make your first steps in programming.
+It will give a flying start to your long journey into learning modern programming languages and software development technologies.
+This book teaches the fundamental principles and concepts of programming, which have not changed significantly in the past 15 years.
+Do not hesitate to read this book even if C# is not the language you would like to pursue.
+Whatever language you move on to, the knowledge we will give you here will stick, because this book will teach you to think like programmers.
+We will show you and teach you how to write programs for solving practical algorithmic problems, form the skills in you to come up with (and implement) algorithms, and use various data structures.
+As improbable as it might seem to you, the basic principles of writing computer programs have not changed all that much in the past 15 years.
+Programming languages change, technologies get modernized, integrated development environments get more and more advanced but the fundamental principles of programming remain the same.
+When beginners learn to think algorithmically, and then learn to divide a problem instinctively into a series of steps to solve it, as well as when they learn to select the appropriate data structures and write high-quality programming code that is when they become programmers.
+Once you acquire these skills, you can easily learn new languages and various technologies – like Web programming, HTML5 and JavaScript, mobile development, databases and SQL, XML, REST, ASP.NET, Java EE, Python, Ruby and hundreds more. 

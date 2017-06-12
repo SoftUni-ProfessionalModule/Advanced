@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+	<title>Info Page</title>
+</head>
+<body>
+	<h2>Current Time: <script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  
+    return i;
+}
+</script>
+</head>
+
+<body onload="startTime()">
+
+<div id="txt"></div></h2>
+	<h2>Logical Processors: 4 <h2>
+</body>
+</html>
