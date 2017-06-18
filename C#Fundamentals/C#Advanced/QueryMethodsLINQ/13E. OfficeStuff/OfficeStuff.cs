@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     public class OfficeStuff
     {
@@ -34,13 +35,8 @@
             foreach (var company in companiesAndProducts)
             {
                 Console.Write($"{company.Key}: ");
-                var products = new List<string>();
-                foreach (var productAndQuantity in company.Value)
-                {
-                    products.Add(productAndQuantity.Key + "-" + productAndQuantity.Value);
-                }
 
-                Console.WriteLine(string.Join(", ", products));
+                Console.WriteLine(string.Join(", ", company.Value.Select(x => $"{x.Key} - {x.Value}")));
             }
         }
     }
