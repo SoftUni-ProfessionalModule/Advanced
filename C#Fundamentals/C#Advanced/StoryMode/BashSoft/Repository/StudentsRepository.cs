@@ -1,12 +1,8 @@
 ﻿namespace BashSoft
 {
-    using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
-    using System.Text;
     using System.Text.RegularExpressions;
-    using System.Threading.Tasks;
 
     public static class StudentsRepository
     {
@@ -131,6 +127,32 @@
                 {
                     OutputWriter.PrintStudent(studentMarksEntry);
                 }
+            }
+        }
+
+        public static void FilterAndTake(string courseName, string givenFilter, int? studentsToTake = null)
+        {
+            if (IsQueryForCoursePossible(courseName))
+            {
+                if (studentsToTake == null)
+                {
+                    studentsToTake = studentByCourse[courseName].Count;
+                }
+
+                RepositoryFilters.FilterAndTake(studentByCourse[courseName], givenFilter, studentsToTake.Value);
+            }
+        }
+
+        public static void OrderAndTake(string courseName, string comparison, int? studentsToTake = null)
+        {
+            if (IsQueryForCoursePossible(courseName))
+            {
+                if (studentsToTake == null)
+                {
+                    studentsToTake = studentByCourse[courseName].Count;
+                }
+
+                RepositorySorters.OrderAndTake(studentByCourse[courseName], comparison, studentsToTake.Value);
             }
         }
     }
